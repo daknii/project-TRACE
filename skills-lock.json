@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "skills": {
+    "gdscript-patterns": {
+      "source": "jame581/godotprompter",
+      "sourceType": "github",
+      "skillPath": "skills/gdscript-patterns/SKILL.md",
+      "computedHash": "333480cb969ba2abf275257118d5f64d41ba77122047e49527fa8e0671e28155"
+    },
+    "godot-debugging": {
+      "source": "jame581/godotprompter",
+      "sourceType": "github",
+      "skillPath": "skills/godot-debugging/SKILL.md",
+      "computedHash": "a110867536b96b052d10ecabdbbde218e1d1ddf028051cedd2b9146434821c41"
+    },
+    "godot-testing": {
+      "source": "jame581/godotprompter",
+      "sourceType": "github",
+      "skillPath": "skills/godot-testing/SKILL.md",
+      "computedHash": "eec8593c9930ec06d7d7ac41366b33c1c6265c1c15b47b8245dbe04cb7b65c03"
+    },
+    "scene-organization": {
+      "source": "jame581/godotprompter",
+      "sourceType": "github",
+      "skillPath": "skills/scene-organization/SKILL.md",
+      "computedHash": "f7d134c1f51a611bca3a1e982015a3787d773487664f6877266cc30963055067"
+    }
+  }
+}
