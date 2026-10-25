@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cf1okkq5wg1am" path="res://assets/sprites/templete-free/individual_sheets/male_hero_template-jump.png" id="5_cestw"]
 [ext_resource type="Texture2D" uid="uid://xj2br55i07i0" path="res://assets/sprites/templete-free/individual_sheets/male_hero_template-run.png" id="6_qd1nl"]
 [ext_resource type="Texture2D" uid="uid://c2w3ubo1udr1a" path="res://assets/sprites/templete-free/individual_sheets/male_hero_template-walk.png" id="7_5em3x"]
-[ext_resource type="Texture2D" uid="uid://cy3r8y0inbixa" path="res://assets/sprites/Mossy Tileset/Mossy - TileSet.png" id="8_o2ktg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7061b"]
 atlas = ExtResource("2_o2ktg")
@@ -77,6 +76,7 @@ region = Rect2(1024, 0, 128, 128)
 atlas = ExtResource("4_rn44l")
 region = Rect2(1152, 0, 128, 128)
 
+<<<<<<< HEAD
 [sub_resource type="AtlasTexture" id="AtlasTexture_a2ci1"]
 atlas = ExtResource("5_cestw")
 region = Rect2(0, 0, 128, 128)
@@ -98,6 +98,29 @@ atlas = ExtResource("5_cestw")
 region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qd1nl"]
+=======
+[sub_resource type="AtlasTexture" id="AtlasTexture_glkg3"]
+atlas = ExtResource("5_cestw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxr33"]
+atlas = ExtResource("5_cestw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj8nd"]
+atlas = ExtResource("5_cestw")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hkih"]
+atlas = ExtResource("5_cestw")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn43m"]
+atlas = ExtResource("5_cestw")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xo7t4"]
+>>>>>>> 0d6a883dad2fd543e465d9ca088921f136db6a67
 atlas = ExtResource("5_cestw")
 region = Rect2(640, 0, 128, 128)
 
@@ -251,6 +274,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+<<<<<<< HEAD
 "texture": SubResource("AtlasTexture_a2ci1")
 }, {
 "duration": 1.0,
@@ -267,6 +291,24 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qd1nl")
+=======
+"texture": SubResource("AtlasTexture_glkg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxr33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xj8nd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hkih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn43m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xo7t4")
+>>>>>>> 0d6a883dad2fd543e465d9ca088921f136db6a67
 }],
 "loop": 0,
 "name": &"jump",
@@ -350,6 +392,7 @@ height = 98.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4pr2"]
 size = Vector2(959, 85)
 
+<<<<<<< HEAD
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3edyv"]
 texture = ExtResource("8_o2ktg")
 texture_region_size = Vector2i(65, 65)
@@ -359,6 +402,8 @@ texture_region_size = Vector2i(65, 65)
 [sub_resource type="TileSet" id="TileSet_ebum8"]
 sources/0 = SubResource("TileSetAtlasSource_3edyv")
 
+=======
+>>>>>>> 0d6a883dad2fd543e465d9ca088921f136db6a67
 [node name="level_debug" type="Node2D" unique_id=940370411]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=897430839]
@@ -385,8 +430,11 @@ position = Vector2(578, 509)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Piso/StaticBody2D" unique_id=926361009]
 position = Vector2(3.5, 70.5)
 shape = SubResource("RectangleShape2D_k4pr2")
+<<<<<<< HEAD
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=348966078]
 position = Vector2(588, 316)
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_ebum8")
+=======
+>>>>>>> 0d6a883dad2fd543e465d9ca088921f136db6a67
