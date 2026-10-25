@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "godot": {
+      "command": "npx",
+      "args": ["-y", "godot-mcp"],
+      "env": {
+        "GODOT_PATH": "/Arquivos/Salvar_Dados/Godot_v4.7.2-stable_linux.x86_64",
+        "GODOT_PROJECT_PATH": "/home/aluno/project-trace",
+        "GODOT_PORT": "9090"
+      }
+    }
+  }
+}
