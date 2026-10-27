@@ -55,6 +55,11 @@ interagir={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Collisoes"
+2d_physics/layer_2="Verificacao"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -64,3 +69,4 @@ interagir={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+viewport/hdr_2d=true
