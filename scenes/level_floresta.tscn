@@ -1,0 +1,1133 @@
+[gd_scene format=4 uid="uid://bqtyyk0x10com"]
+
+[ext_resource type="Script" uid="uid://bfl2fom0gp6md" path="res://scripts/player/PlayerController.gd" id="1_a2ci1"]
+[ext_resource type="Texture2D" uid="uid://tg7fhnbj83au" path="res://assets/sprites/templete-free/individual_sheets/male_hero_template-fall.png" id="2_o2ktg"]
+[ext_resource type="Texture2D" uid="uid://dfxi0ckocx5lw" path="res://assets/sprites/templete-free/individual_sheets/male_hero_template-fall_loop.png" id="3_3edyv"]
+[ext_resource type="Texture2D" uid="uid://vb7urmtw1t5y" path="res://assets/sprites/templete-free/individual_sheets/male_hero_template-idle.png" id="4_rn44l"]
+[ext_resource type="Texture2D" uid="uid://cf1okkq5wg1am" path="res://assets/sprites/templete-free/individual_sheets/male_hero_template-jump.png" id="5_cestw"]
+[ext_resource type="Texture2D" uid="uid://xj2br55i07i0" path="res://assets/sprites/templete-free/individual_sheets/male_hero_template-run.png" id="6_qd1nl"]
+[ext_resource type="Texture2D" uid="uid://c2w3ubo1udr1a" path="res://assets/sprites/templete-free/individual_sheets/male_hero_template-walk.png" id="7_5em3x"]
+[ext_resource type="Texture2D" uid="uid://cy3r8y0inbixa" path="res://assets/sprites/Mossy Tileset/Mossy - TileSet.png" id="8_tiles"]
+[ext_resource type="Texture2D" uid="uid://cpfd8848tmpmn" path="res://assets/sprites/Mossy Tileset/Mossy - Decorations&Hazards.png" id="9_dec"]
+[ext_resource type="Texture2D" uid="uid://cpjur4tnkitxs" path="res://assets/sprites/Mossy Tileset/Mossy - BackgroundDecoration.png" id="10_bg"]
+[ext_resource type="Shader" uid="uid://cw77tkgfjg2wv" path="res://scenes/level_debug.gdshader" id="11_shader"]
+[ext_resource type="Script" uid="uid://baeaviml207go" path="res://scripts/blur_world.gd" id="12_blur"]
+[ext_resource type="Texture2D" uid="uid://charevfhcukge" path="res://assets/sprites/Mossy Tileset/Mossy - Hanging Plants.png" id="13_hang"]
+[ext_resource type="Texture2D" uid="uid://bnkkbtexr8u6g" path="res://assets/sprites/Mossy Tileset/Mossy - MossyHills.png" id="14_hill"]
+[ext_resource type="Texture2D" uid="uid://d0ipymoawulcl" path="res://assets/sprites/Mossy Tileset/Mossy - FloatingPlatforms.png" id="15_plat"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7061b"]
+atlas = ExtResource("2_o2ktg")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewwtb"]
+atlas = ExtResource("2_o2ktg")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkpkt"]
+atlas = ExtResource("2_o2ktg")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_url56"]
+atlas = ExtResource("2_o2ktg")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nojvd"]
+atlas = ExtResource("3_3edyv")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnwra"]
+atlas = ExtResource("3_3edyv")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p2f2"]
+atlas = ExtResource("3_3edyv")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rf1i"]
+atlas = ExtResource("4_rn44l")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lanqo"]
+atlas = ExtResource("4_rn44l")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l2e30"]
+atlas = ExtResource("4_rn44l")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di8g0"]
+atlas = ExtResource("4_rn44l")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_de4ji"]
+atlas = ExtResource("4_rn44l")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vuwo"]
+atlas = ExtResource("4_rn44l")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meafy"]
+atlas = ExtResource("4_rn44l")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqi0n"]
+atlas = ExtResource("4_rn44l")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7booa"]
+atlas = ExtResource("4_rn44l")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4mrwv"]
+atlas = ExtResource("4_rn44l")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2ci1"]
+atlas = ExtResource("5_cestw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2ktg"]
+atlas = ExtResource("5_cestw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3edyv"]
+atlas = ExtResource("5_cestw")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rn44l"]
+atlas = ExtResource("5_cestw")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cestw"]
+atlas = ExtResource("5_cestw")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qd1nl"]
+atlas = ExtResource("5_cestw")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fl0u8"]
+atlas = ExtResource("6_qd1nl")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca0hv"]
+atlas = ExtResource("6_qd1nl")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8aeto"]
+atlas = ExtResource("6_qd1nl")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neoi3"]
+atlas = ExtResource("6_qd1nl")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msoa2"]
+atlas = ExtResource("6_qd1nl")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cotfu"]
+atlas = ExtResource("6_qd1nl")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wipdg"]
+atlas = ExtResource("6_qd1nl")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rty7"]
+atlas = ExtResource("6_qd1nl")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to1pc"]
+atlas = ExtResource("6_qd1nl")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8txkq"]
+atlas = ExtResource("6_qd1nl")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8xle"]
+atlas = ExtResource("7_5em3x")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77xjp"]
+atlas = ExtResource("7_5em3x")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq7ig"]
+atlas = ExtResource("7_5em3x")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag0ey"]
+atlas = ExtResource("7_5em3x")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nm7m"]
+atlas = ExtResource("7_5em3x")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6ffg"]
+atlas = ExtResource("7_5em3x")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63w6j"]
+atlas = ExtResource("7_5em3x")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ivat"]
+atlas = ExtResource("7_5em3x")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3xes"]
+atlas = ExtResource("7_5em3x")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vo34"]
+atlas = ExtResource("7_5em3x")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3nqnr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7061b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewwtb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkpkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_url56")
+}],
+"loop": 0,
+"name": &"fall",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nojvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnwra")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1p2f2")
+}],
+"loop": 1,
+"name": &"fall_loop",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rf1i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lanqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l2e30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di8g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_de4ji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vuwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_meafy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqi0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7booa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4mrwv")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2ci1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2ktg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3edyv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rn44l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cestw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qd1nl")
+}],
+"loop": 0,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fl0u8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca0hv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8aeto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neoi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_msoa2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cotfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wipdg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rty7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_to1pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8txkq")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8xle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77xjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq7ig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag0ey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nm7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6ffg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63w6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ivat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v3xes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vo34")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k4pr2"]
+radius = 28.0
+height = 98.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k4pr2"]
+
+[sub_resource type="Gradient" id="Gradient_luz"]
+offsets = PackedFloat32Array(0, 0.45, 1)
+colors = PackedColorArray(0.62, 0.9, 0.86, 0.55, 0.35, 0.68, 0.68, 0.22, 0.25, 0.55, 0.58, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_luz"]
+gradient = SubResource("Gradient_luz")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_musgo"]
+texture = ExtResource("8_tiles")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -20, -15, -45, 128, -45, 128, 128, -50, 128)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -45, 128, -45, 128, 128, -128, 128)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -45, 128, -45, 128, 128, -128, 128)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -45, 128, -45, 128, 128, -128, 128)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -45, 128, -45, 128, 128, -128, 128)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -45, 5, -45, 40, -20, 40, 128, -128, 128)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -128, 128, -128, 128, 128, -50, 128)
+0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-50, -128, 128, -128, 128, 128, -50, 128)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 40, -128, 40, 128, -128, 128)
+5:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-128, -128, 40, -128, 40, 128, -128, 128)
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+10:1/0 = 0
+10:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -128, 128, -128, 128, 128, -50, 128)
+0:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-50, -128, 128, -128, 128, 128, -50, 128)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 40, -128, 40, 128, -128, 128)
+5:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-128, -128, 40, -128, 40, 128, -128, 128)
+9:2/0 = 0
+9:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+10:2/0 = 0
+10:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -128, 128, -128, 128, 128, -50, 128)
+0:3/0/physics_layer_1/polygon_0/points = PackedVector2Array(-50, -128, 128, -128, 128, 128, -50, 128)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+4:3/0 = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+5:3/0 = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 40, -128, 40, 128, -128, 128)
+5:3/0/physics_layer_1/polygon_0/points = PackedVector2Array(-128, -128, 40, -128, 40, 128, -128, 128)
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -128, 128, -128, 128, 128, -50, 128)
+0:4/0/physics_layer_1/polygon_0/points = PackedVector2Array(-50, -128, 128, -128, 128, 128, -50, 128)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
+5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 40, -128, 40, 128, -128, 128)
+5:4/0/physics_layer_1/polygon_0/points = PackedVector2Array(-128, -128, 40, -128, 40, 128, -128, 128)
+0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -128, 128, -128, 128, 0, -15, 0, -50, -30)
+1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 0, -128, 0)
+2:5/0 = 0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 0, -128, 0)
+3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 0, -128, 0)
+4:5/0 = 0
+4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 0, -128, 0)
+5:5/0 = 0
+5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 40, -128, 40, -30, 5, 0, -128, 0)
+1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -15, -30, -40, 128, -40, 128, 128, -70, 128)
+2:6/0 = 0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -40, 128, -40, 128, 128, -128, 128)
+3:6/0 = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -40, 128, -40, 128, 128, -128, 128)
+4:6/0 = 0
+4:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -40, 30, -40, 70, -15, 70, 128, -128, 128)
+6:6/0 = 0
+6:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -15, -20, -40, 128, -40, 128, 128, -60, 128)
+7:6/0 = 0
+7:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -40, 20, -40, 60, -15, 60, 128, -128, 128)
+1:7/0 = 0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-70, -128, 128, -128, 128, -50, -40, -50)
+2:7/0 = 0
+2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, -50, -128, -50)
+3:7/0 = 0
+3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, -50, -128, -50)
+4:7/0 = 0
+4:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 70, -128, 40, -50, -128, -50)
+6:7/0 = 0
+6:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -128, 128, -128, 128, -50, -30, -50)
+7:7/0 = 0
+7:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 60, -128, 30, -50, -128, -50)
+
+[sub_resource type="TileSet" id="TileSet_musgo"]
+tile_size = Vector2i(256, 256)
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 2
+physics_layer_1/collision_mask = 2
+physics_layer_1/collision_priority = 0.0
+sources/0 = SubResource("TileSetAtlasSource_musgo")
+
+[sub_resource type="Gradient" id="Gradient_ponto"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ponto"]
+gradient = SubResource("Gradient_ponto")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_vida"]
+offsets = PackedFloat32Array(0, 0.25, 0.75, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_esq"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dir"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="Environment" id="Environment_k4pr2"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.07
+glow_bloom = 0.84
+glow_hdr_threshold = 2.32
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nqnr"]
+shader = ExtResource("11_shader")
+shader_parameter/blur_amount = 2.0
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
+[node name="level_floresta" type="Node2D" unique_id=1385402910]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=93916341]
+z_index = 1
+position = Vector2(500, 436)
+script = ExtResource("1_a2ci1")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="Player" unique_id=831912476]
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_3nqnr")
+animation = &"jump"
+autoplay = "idle"
+frame = 5
+frame_progress = 1.0
+
+[node name="Hitbox" type="CollisionShape2D" parent="Player" unique_id=1979927481]
+shape = SubResource("CapsuleShape2D_k4pr2")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=580721508]
+zoom = Vector2(1.5, 1.5)
+limit_left = 0
+limit_top = 0
+limit_right = 1229
+limit_bottom = 922
+
+[node name="PatasDireita" type="Area2D" parent="Player" unique_id=908573726]
+position = Vector2(33, -10)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PatasDireita" unique_id=114181605]
+shape = SubResource("CircleShape2D_k4pr2")
+debug_color = Color(0.9920365, 0, 0.26378384, 0.41960785)
+
+[node name="PatasEsquerda" type="Area2D" parent="Player" unique_id=626059840]
+position = Vector2(-30, -10)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PatasEsquerda" unique_id=574579520]
+shape = SubResource("CircleShape2D_k4pr2")
+debug_color = Color(0.9920365, 0, 0.26378384, 0.41960785)
+
+[node name="Paralaxe" type="Parallax2D" parent="." unique_id=1030136221]
+z_index = -10
+scroll_scale = Vector2(0.75, 0.75)
+
+[node name="Luz" type="Sprite2D" parent="Paralaxe" unique_id=1806629325]
+position = Vector2(520, 330)
+scale = Vector2(2.6, 2.2)
+texture = SubResource("GradientTexture2D_luz")
+
+[node name="Luz2" type="Sprite2D" parent="Paralaxe" unique_id=2080471547]
+position = Vector2(860, 230)
+scale = Vector2(1.6, 1.4)
+texture = SubResource("GradientTexture2D_luz")
+
+[node name="Silhuetas" type="Node2D" parent="Paralaxe" unique_id=426402348]
+scale = Vector2(0.3, 0.3)
+
+[node name="ColunaLonge" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=1898363313]
+modulate = Color(0.2, 0.5, 0.52, 0.28)
+position = Vector2(2860, 520)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(16, 40, 1048, 4032)
+
+[node name="ColunaLonge2" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=2015099782]
+modulate = Color(0.2, 0.5, 0.52, 0.28)
+position = Vector2(960, 1320)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("10_bg")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(16, 40, 1048, 4032)
+
+[node name="Gota1" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=211456871]
+modulate = Color(0.16, 0.42, 0.45, 0.42)
+position = Vector2(1610, 470)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(1192, 40, 1040, 2352)
+
+[node name="Gota2" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=1448094753]
+modulate = Color(0.16, 0.42, 0.45, 0.42)
+position = Vector2(2110, 340)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_bg")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(1192, 40, 1040, 2352)
+
+[node name="Gota3" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=2025290719]
+modulate = Color(0.16, 0.42, 0.45, 0.42)
+position = Vector2(2370, 270)
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(16, 40, 1048, 4032)
+
+[node name="NuvemDireita" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=1547266854]
+modulate = Color(0.16, 0.42, 0.45, 0.42)
+position = Vector2(3290, 740)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(2672, 128, 1088, 1000)
+
+[node name="NuvemDireita2" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=1154559977]
+modulate = Color(0.2, 0.5, 0.52, 0.28)
+position = Vector2(3710, 1120)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("10_bg")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2672, 128, 1088, 1000)
+
+[node name="MonteEsquerda" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=313983693]
+modulate = Color(0.16, 0.42, 0.45, 0.42)
+position = Vector2(410, 1170)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(2384, 1408, 1680, 912)
+
+[node name="MonteCentro" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=490889787]
+modulate = Color(0.16, 0.42, 0.45, 0.42)
+position = Vector2(2060, 1920)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(1216, 2608, 920, 648)
+
+[node name="NuvemCentro" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=23344676]
+modulate = Color(0.2, 0.5, 0.52, 0.28)
+position = Vector2(1660, 1820)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(2672, 128, 1088, 1000)
+
+[node name="MonteBaixo" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=1596396074]
+modulate = Color(0.2, 0.5, 0.52, 0.28)
+position = Vector2(2710, 2120)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(2384, 1408, 1680, 912)
+
+[node name="Mundo" type="Node2D" parent="." unique_id=1472373050]
+scale = Vector2(0.3, 0.3)
+
+[node name="Fundo" type="Node2D" parent="Mundo" unique_id=493466980]
+z_index = -1
+
+[node name="Samambaia1" type="Sprite2D" parent="Mundo/Fundo" unique_id=1712482696]
+modulate = Color(0.62, 0.75, 0.7, 1)
+position = Vector2(560, 502.8)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("13_hang")
+region_enabled = true
+region_rect = Rect2(112, 120, 368, 1176)
+
+[node name="Samambaia2" type="Sprite2D" parent="Mundo/Fundo" unique_id=1443915491]
+modulate = Color(0.62, 0.75, 0.7, 1)
+position = Vector2(820, 432.8)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("13_hang")
+region_enabled = true
+region_rect = Rect2(512, 112, 368, 976)
+
+[node name="Samambaia3" type="Sprite2D" parent="Mundo/Fundo" unique_id=332241810]
+modulate = Color(0.62, 0.75, 0.7, 1)
+position = Vector2(1075, 442.8)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("13_hang")
+region_enabled = true
+region_rect = Rect2(912, 120, 368, 976)
+
+[node name="SamambaiaEscura1" type="Sprite2D" parent="Mundo/Fundo" unique_id=17779725]
+modulate = Color(0.22, 0.32, 0.28, 1)
+position = Vector2(1830, 378.4)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("13_hang")
+region_enabled = true
+region_rect = Rect2(1304, 112, 312, 824)
+
+[node name="SamambaiaEscura2" type="Sprite2D" parent="Mundo/Fundo" unique_id=1691994727]
+modulate = Color(0.22, 0.32, 0.28, 1)
+position = Vector2(2010, 382.56)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("13_hang")
+region_enabled = true
+region_rect = Rect2(512, 112, 368, 976)
+
+[node name="SamambaiaEscura3" type="Sprite2D" parent="Mundo/Fundo" unique_id=869029377]
+modulate = Color(0.22, 0.32, 0.28, 1)
+position = Vector2(2180, 378.4)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("13_hang")
+region_enabled = true
+region_rect = Rect2(912, 120, 368, 976)
+
+[node name="MusgoPendurado1" type="Sprite2D" parent="Mundo/Fundo" unique_id=71994065]
+position = Vector2(2390, 559.04)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("13_hang")
+region_enabled = true
+region_rect = Rect2(88, 1392, 464, 1384)
+
+[node name="MusgoPendurado2" type="Sprite2D" parent="Mundo/Fundo" unique_id=782417359]
+position = Vector2(3420, 452.16)
+scale = Vector2(0.48, 0.48)
+texture = ExtResource("13_hang")
+region_enabled = true
+region_rect = Rect2(720, 1392, 464, 1384)
+
+[node name="PedraInclinada" type="Sprite2D" parent="Mundo/Fundo" unique_id=1287289806]
+position = Vector2(1180, 1503.6)
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("9_dec")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2888, 8, 1056, 920)
+
+[node name="TroncoEsquerda" type="Sprite2D" parent="Mundo/Fundo" unique_id=1139864739]
+position = Vector2(1340, 1023.28)
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(3720, 2544, 248, 1504)
+
+[node name="TroncoDireita" type="Sprite2D" parent="Mundo/Fundo" unique_id=424035110]
+position = Vector2(2830, 944.8)
+scale = Vector2(0.98, 0.98)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(3104, 2560, 424, 1480)
+
+[node name="TroncoSuporte1" type="Sprite2D" parent="Mundo/Fundo" unique_id=1172278425]
+position = Vector2(1670, 2130.88)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(2112, 2560, 416, 1472)
+
+[node name="TroncoSuporte2" type="Sprite2D" parent="Mundo/Fundo" unique_id=1179360146]
+position = Vector2(2730, 2129.2)
+scale = Vector2(0.42, 0.42)
+texture = ExtResource("9_dec")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2608, 2560, 432, 1480)
+
+[node name="TroncoFino" type="Sprite2D" parent="Mundo/Fundo" unique_id=1446556816]
+position = Vector2(780, 2159.28)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(3720, 2544, 248, 1504)
+
+[node name="PedraMusgo" type="Sprite2D" parent="Mundo/Fundo" unique_id=677609134]
+position = Vector2(380, 1487)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(232, 192, 1288, 712)
+
+[node name="ArbustoBorda1" type="Sprite2D" parent="Mundo/Fundo" unique_id=738109489]
+position = Vector2(120, 1594)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("15_plat")
+region_enabled = true
+region_rect = Rect2(112, 48, 264, 320)
+
+[node name="Broto1" type="Sprite2D" parent="Mundo/Fundo" unique_id=2051307831]
+position = Vector2(860, 1597.4)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(656, 2624, 280, 384)
+
+[node name="Tufo1" type="Sprite2D" parent="Mundo/Fundo" unique_id=1639946928]
+position = Vector2(1180, 1595)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(1600, 3616, 368, 400)
+
+[node name="Tufo2" type="Sprite2D" parent="Mundo/Fundo" unique_id=901999820]
+position = Vector2(1520, 1605.72)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(1600, 3072, 400, 448)
+
+[node name="Tufo3" type="Sprite2D" parent="Mundo/Fundo" unique_id=612303941]
+position = Vector2(2700, 1587.8)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(1600, 3072, 400, 448)
+
+[node name="Folhagem1" type="Sprite2D" parent="Mundo/Fundo" unique_id=1320752201]
+position = Vector2(3060, 1614.4)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(616, 3176, 304, 232)
+
+[node name="Brilho1" type="Sprite2D" parent="Mundo/Fundo" unique_id=1110369385]
+position = Vector2(3330, 1583)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(568, 3568, 376, 480)
+
+[node name="Brilho2" type="Sprite2D" parent="Mundo/Fundo" unique_id=858543529]
+position = Vector2(3240, 1595.72)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(216, 3584, 104, 456)
+
+[node name="Broto2" type="Sprite2D" parent="Mundo/Fundo" unique_id=496847683]
+position = Vector2(3640, 1585.88)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(656, 2624, 280, 384)
+
+[node name="ArbustoBorda2" type="Sprite2D" parent="Mundo/Fundo" unique_id=128232652]
+position = Vector2(3900, 1594)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("15_plat")
+region_enabled = true
+region_rect = Rect2(112, 1104, 288, 280)
+
+[node name="PedraRedonda" type="Sprite2D" parent="Mundo/Fundo" unique_id=94879079]
+position = Vector2(1380, 2316.84)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(232, 192, 1288, 712)
+
+[node name="PedraAlta" type="Sprite2D" parent="Mundo/Fundo" unique_id=1192318000]
+position = Vector2(2690, 2238)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(2888, 8, 1056, 920)
+
+[node name="Folhas1" type="Sprite2D" parent="Mundo/Fundo" unique_id=204353566]
+position = Vector2(1130, 2378.8)
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(96, 2640, 288, 264)
+
+[node name="BrilhoBaixo1" type="Sprite2D" parent="Mundo/Fundo" unique_id=1163884839]
+position = Vector2(1060, 2350)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(1256, 3632, 88, 400)
+
+[node name="TufoBaixo1" type="Sprite2D" parent="Mundo/Fundo" unique_id=514222662]
+position = Vector2(1870, 2367.28)
+scale = Vector2(0.28, 0.28)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(1600, 3072, 400, 448)
+
+[node name="Caracol" type="Sprite2D" parent="Mundo/Fundo" unique_id=1808761198]
+position = Vector2(2410, 2348.4)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(1168, 3104, 176, 408)
+
+[node name="TufoBaixo2" type="Sprite2D" parent="Mundo/Fundo" unique_id=1593338191]
+position = Vector2(2470, 2378)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(1600, 3616, 368, 400)
+
+[node name="BrotoBaixo" type="Sprite2D" parent="Mundo/Fundo" unique_id=244629520]
+position = Vector2(3000, 2368.56)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(656, 2624, 280, 384)
+
+[node name="BrilhoBaixo2" type="Sprite2D" parent="Mundo/Fundo" unique_id=354919723]
+position = Vector2(3110, 2348.4)
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(568, 3568, 376, 480)
+
+[node name="DegrauPedra" type="StaticBody2D" parent="Mundo/Fundo" unique_id=784510933]
+position = Vector2(2090, 2291.4)
+scale = Vector2(0.6, 0.6)
+
+[node name="Sprite" type="Sprite2D" parent="Mundo/Fundo/DegrauPedra" unique_id=258741665]
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(1600, 400, 1144, 512)
+
+[node name="Colisao" type="CollisionPolygon2D" parent="Mundo/Fundo/DegrauPedra" unique_id=1399063401]
+polygon = PackedVector2Array(-450, -195, 250, -218, 420, -60, 440, 256, -470, 256)
+
+[node name="Terreno" type="TileMapLayer" parent="Mundo" unique_id=122167782]
+tile_map_data = PackedByteArray("AAD//wAAAAACAAIAAAAAAAAAAAAJAAEAAAABAAAAAAACAAUAAAACAAAAAAADAAUAAAADAAAAAAAEAAUAAAAEAAAAAAABAAUAAAAFAAAAAAACAAUAAAAGAAAAAAADAAUAAAAHAAAAAAAEAAUAAAAIAAAAAAABAAUAAAAJAAAAAAACAAUAAAAKAAAAAAADAAUAAAALAAAAAAAEAAUAAAAMAAAAAAABAAUAAAANAAAAAAACAAUAAAAOAAAAAAADAAUAAAAPAAAAAAAKAAEAAAAQAAAAAAACAAIAAAD//wEAAAACAAIAAAAAAAEAAAAFAAEAAAAPAAEAAAAAAAEAAAAQAAEAAAACAAIAAAD//wIAAAACAAIAAAAAAAIAAAAFAAIAAAAPAAIAAAAAAAIAAAAQAAIAAAACAAIAAAD//wMAAAACAAIAAAAAAAMAAAAFAAMAAAAPAAMAAAAAAAMAAAAQAAMAAAACAAIAAAD//wQAAAACAAUAAAAAAAQAAAAFAAUAAAAPAAQAAAAAAAUAAAAQAAQAAAADAAUAAAD//wYAAAAEAAAAAAAAAAYAAAABAAAAAAABAAYAAAACAAAAAAACAAYAAAAFAAAAAAADAAYAAAABAAYAAAAEAAYAAAACAAYAAAAFAAYAAAADAAYAAAAGAAYAAAAEAAYAAAAKAAYAAAABAAYAAAALAAYAAAACAAYAAAAMAAYAAAADAAYAAAANAAYAAAAEAAYAAAAOAAYAAAAAAAAAAAAPAAYAAAAEAAAAAAAQAAYAAAABAAAAAAD//wcAAAAEAAUAAAAAAAcAAAABAAUAAAABAAcAAAACAAUAAAACAAcAAAAFAAUAAAADAAcAAAABAAcAAAAEAAcAAAACAAcAAAAFAAcAAAADAAcAAAAGAAcAAAAEAAcAAAAKAAcAAAABAAcAAAALAAcAAAACAAcAAAAMAAcAAAADAAcAAAANAAcAAAAEAAcAAAAOAAcAAAAAAAUAAAAPAAcAAAAEAAUAAAAQAAcAAAABAAUAAAD//wkAAAACAAAAAAAAAAkAAAADAAAAAAABAAkAAAAEAAAAAAACAAkAAAABAAAAAAADAAkAAAACAAAAAAAEAAkAAAADAAAAAAAFAAkAAAAEAAAAAAAGAAkAAAABAAAAAAAHAAkAAAACAAAAAAAIAAkAAAADAAAAAAAJAAkAAAAEAAAAAAAKAAkAAAABAAAAAAALAAkAAAACAAAAAAAMAAkAAAADAAAAAAANAAkAAAAEAAAAAAAOAAkAAAABAAAAAAAPAAkAAAACAAAAAAAQAAkAAAADAAAAAAD//woAAAACAAIAAAAAAAoAAAACAAIAAAABAAoAAAACAAIAAAACAAoAAAACAAIAAAADAAoAAAACAAIAAAAEAAoAAAACAAIAAAAFAAoAAAACAAIAAAAGAAoAAAACAAIAAAAHAAoAAAACAAIAAAAIAAoAAAACAAIAAAAJAAoAAAACAAIAAAAKAAoAAAACAAIAAAALAAoAAAACAAIAAAAMAAoAAAACAAIAAAANAAoAAAACAAIAAAAOAAoAAAACAAIAAAAPAAoAAAACAAIAAAAQAAoAAAACAAIAAAD//wsAAAACAAIAAAAAAAsAAAACAAIAAAABAAsAAAACAAIAAAACAAsAAAACAAIAAAADAAsAAAACAAIAAAAEAAsAAAACAAIAAAAFAAsAAAACAAIAAAAGAAsAAAACAAIAAAAHAAsAAAACAAIAAAAIAAsAAAACAAIAAAAJAAsAAAACAAIAAAAKAAsAAAACAAIAAAALAAsAAAACAAIAAAAMAAsAAAACAAIAAAANAAsAAAACAAIAAAAOAAsAAAACAAIAAAAPAAsAAAACAAIAAAAQAAsAAAACAAIAAAD//wwAAAACAAIAAAAAAAwAAAACAAIAAAABAAwAAAACAAIAAAACAAwAAAACAAIAAAADAAwAAAACAAIAAAAEAAwAAAACAAIAAAAFAAwAAAACAAIAAAAGAAwAAAACAAIAAAAHAAwAAAACAAIAAAAIAAwAAAACAAIAAAAJAAwAAAACAAIAAAAKAAwAAAACAAIAAAALAAwAAAACAAIAAAAMAAwAAAACAAIAAAANAAwAAAACAAIAAAAOAAwAAAACAAIAAAAPAAwAAAACAAIAAAAQAAwAAAACAAIAAAA=")
+tile_set = SubResource("TileSet_musgo")
+rendering_quadrant_size = 256
+
+[node name="Teto" type="Node2D" parent="Mundo" unique_id=734597057]
+z_index = 1
+
+[node name="TetoEsquerda" type="Sprite2D" parent="Mundo/Teto" unique_id=771516661]
+position = Vector2(600, 140)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("14_hill")
+region_enabled = true
+region_rect = Rect2(648, 616, 1240, 856)
+
+[node name="BojoParede" type="Sprite2D" parent="Mundo/Teto" unique_id=1366220591]
+position = Vector2(120, 760)
+rotation = 1.5708
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(1216, 2608, 920, 648)
+
+[node name="TetoCentro1" type="Sprite2D" parent="Mundo/Teto" unique_id=2114819190]
+position = Vector2(1600, 90)
+rotation = 3.1416
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("14_hill")
+region_enabled = true
+region_rect = Rect2(688, 32, 1160, 496)
+
+[node name="TetoCentro2" type="Sprite2D" parent="Mundo/Teto" unique_id=951208175]
+position = Vector2(2850, 80)
+rotation = 3.1416
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_hill")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(688, 32, 1160, 496)
+
+[node name="TetoDireita" type="Sprite2D" parent="Mundo/Teto" unique_id=780731610]
+position = Vector2(3720, 190)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("14_hill")
+region_enabled = true
+region_rect = Rect2(648, 616, 1240, 856)
+
+[node name="BojoParede2" type="Sprite2D" parent="Mundo/Teto" unique_id=100437867]
+position = Vector2(3990, 760)
+rotation = -1.5708
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(1216, 2608, 920, 648)
+
+[node name="PonteEspinhos" type="Sprite2D" parent="Mundo/Teto" unique_id=2144100585]
+position = Vector2(2170, 1700)
+scale = Vector2(0.47, 0.47)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(120, 960, 1480, 632)
+
+[node name="EspinhosParede" type="Sprite2D" parent="Mundo/Teto" unique_id=1191832748]
+position = Vector2(3930, 1330)
+rotation = -1.25
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("9_dec")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2064, 968, 1232, 816)
+
+[node name="Frente" type="Node2D" parent="Mundo" unique_id=977965533]
+z_index = 10
+
+[node name="MonteFrenteEsq" type="Sprite2D" parent="Mundo/Frente" unique_id=1792640947]
+modulate = Color(0.5, 0.64, 0.56, 1)
+position = Vector2(880, 2456.96)
+scale = Vector2(0.86, 0.86)
+texture = ExtResource("10_bg")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2392, 2360, 1688, 1728)
+
+[node name="MonteFrenteEsq2" type="Sprite2D" parent="Mundo/Frente" unique_id=2078541078]
+modulate = Color(0.5, 0.64, 0.56, 1)
+position = Vector2(1420, 2959)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("14_hill")
+region_enabled = true
+region_rect = Rect2(64, 1512, 1328, 456)
+
+[node name="MonteFrenteDir" type="Sprite2D" parent="Mundo/Frente" unique_id=1513046732]
+modulate = Color(0.5, 0.64, 0.56, 1)
+position = Vector2(3300, 2422.4)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(2392, 2360, 1688, 1728)
+
+[node name="MonteFrenteDir2" type="Sprite2D" parent="Mundo/Frente" unique_id=54830059]
+modulate = Color(0.5, 0.64, 0.56, 1)
+position = Vector2(4060, 2923.2)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(1216, 2608, 920, 648)
+
+[node name="FolhaFrenteEsq" type="Sprite2D" parent="Mundo/Frente" unique_id=722233400]
+modulate = Color(0.13, 0.27, 0.22, 1)
+position = Vector2(170, 2560)
+rotation = 0.25
+scale = Vector2(2.3, 2.3)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(88, 3072, 336, 448)
+
+[node name="FolhaFrenteEsq2" type="Sprite2D" parent="Mundo/Frente" unique_id=874675337]
+modulate = Color(0.13, 0.27, 0.22, 1)
+position = Vector2(40, 1900)
+rotation = 0.6
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("9_dec")
+region_enabled = true
+region_rect = Rect2(88, 3072, 336, 448)
+
+[node name="FolhaFrenteDir" type="Sprite2D" parent="Mundo/Frente" unique_id=693099088]
+modulate = Color(0.13, 0.27, 0.22, 1)
+position = Vector2(3720, 2700)
+rotation = -0.3
+scale = Vector2(2.2, 2.2)
+texture = ExtResource("9_dec")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(88, 3072, 336, 448)
+
+[node name="Vagalumes" type="CPUParticles2D" parent="." unique_id=1912752058]
+z_index = 3
+position = Vector2(614.4, 420.8)
+amount = 70
+texture = SubResource("GradientTexture2D_ponto")
+lifetime = 6.0
+preprocess = 6.0
+emission_shape = 3
+emission_rect_extents = Vector2(614.4, 420.8)
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 18.0
+tangential_accel_min = -6.0
+tangential_accel_max = 6.0
+scale_amount_min = 0.12
+scale_amount_max = 0.3
+color = Color(0.55, 1.9, 0.75, 1)
+color_ramp = SubResource("Gradient_vida")
+
+[node name="Limites" type="StaticBody2D" parent="." unique_id=1223464488]
+
+[node name="Esquerda" type="CollisionShape2D" parent="Limites" unique_id=181958662]
+shape = SubResource("WorldBoundaryShape2D_esq")
+
+[node name="Direita" type="CollisionShape2D" parent="Limites" unique_id=655210813]
+position = Vector2(1228.8, 0)
+shape = SubResource("WorldBoundaryShape2D_dir")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2129455595]
+environment = SubResource("Environment_k4pr2")
+
+[node name="BlurWorld" type="CanvasLayer" parent="." unique_id=1048814102]
+layer = 10
+script = ExtResource("12_blur")
+
+[node name="ColorRect" type="ColorRect" parent="BlurWorld" unique_id=1284294230]
+material = SubResource("ShaderMaterial_3nqnr")
+offset_left = -721.0
+offset_top = -656.0
+offset_right = 1861.0
+offset_bottom = 909.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1353358192]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1062508742]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.105, 0.27, 0.29, 1)

@@ -1,6 +1,7 @@
 # Regras do Projeto (AGENTS.md)
 
-Consulte também [GEMINI.md](file:///home/aluno/project-trace/GEMINI.md) para as regras principais deste workspace.
+Consulte também [GEMINI.md](project-trace/GEMINI.md) para as regras principais deste workspace.
+Leia [JOGO.md](project-trace/JOGO.md) para entender o jogo e a historia.
 
 # Godot Project Guidelines
 
