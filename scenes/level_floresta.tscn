@@ -368,12 +368,6 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nqnr"]
-shader = ExtResource("11_shader")
-shader_parameter/blur_amount = 2.0
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.5
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_musgo"]
 texture = ExtResource("8_tiles")
 texture_region_size = Vector2i(256, 256)
@@ -526,6 +520,12 @@ glow_intensity = 1.07
 glow_bloom = 0.84
 glow_hdr_threshold = 2.32
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3nqnr"]
+shader = ExtResource("11_shader")
+shader_parameter/blur_amount = 2.0
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+
 [node name="level_floresta" type="Node2D" unique_id=1385402910]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=93916341]
@@ -677,6 +677,50 @@ texture = ExtResource("10_bg")
 region_enabled = true
 region_rect = Rect2(2384, 1408, 1680, 912)
 
+[node name="NuvemDireita3" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=1011240849]
+modulate = Color(0.16, 0.42, 0.45, 0.42)
+position = Vector2(3141, 1740)
+rotation = 3.1415927
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(2672, 128, 1088, 1000)
+
+[node name="NuvemDireita4" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=493844869]
+modulate = Color(0.2, 0.5, 0.52, 0.28)
+position = Vector2(3815, 1820)
+rotation = 3.1415927
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("10_bg")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(2672, 128, 1088, 1000)
+
+[node name="MonteEsquerda2" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=1899848798]
+modulate = Color(0.16, 0.42, 0.45, 0.42)
+position = Vector2(448, 1717)
+rotation = 3.1415927
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(2384, 1408, 1680, 912)
+
+[node name="MonteCentro2" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=230616582]
+modulate = Color(0.16, 0.42, 0.45, 0.42)
+position = Vector2(2007, 2467)
+rotation = 3.1415927
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(1216, 2608, 920, 648)
+
+[node name="NuvemCentro2" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=598527804]
+modulate = Color(0.2, 0.5, 0.52, 0.28)
+position = Vector2(1584, 2320)
+rotation = 3.1415927
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_bg")
+region_enabled = true
+region_rect = Rect2(2672, 128, 1088, 1000)
 
 [node name="Mundo" type="Node2D" parent="." unique_id=1472373050]
 scale = Vector2(0.3, 0.3)
@@ -755,15 +799,15 @@ region_enabled = true
 region_rect = Rect2(2888, 8, 1056, 920)
 
 [node name="TroncoEsquerda" type="Sprite2D" parent="Mundo/Fundo" unique_id=1139864739]
-position = Vector2(1340, 1023.28)
-scale = Vector2(0.86, 0.86)
+position = Vector2(1365.0133, 871.5866)
+scale = Vector2(1.06172, 1.06172)
 texture = ExtResource("9_dec")
 region_enabled = true
 region_rect = Rect2(3720, 2544, 248, 1504)
 
 [node name="TroncoDireita" type="Sprite2D" parent="Mundo/Fundo" unique_id=424035110]
-position = Vector2(2830, 944.8)
-scale = Vector2(0.98, 0.98)
+position = Vector2(2854.4531, 859.4444)
+scale = Vector2(1.0953454, 1.0953454)
 texture = ExtResource("9_dec")
 region_enabled = true
 region_rect = Rect2(3104, 2560, 424, 1480)
