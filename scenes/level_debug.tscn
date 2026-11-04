@@ -615,7 +615,7 @@ shader_parameter/vignette_opacity = 0.5
 [node name="level_debug" type="Node2D" unique_id=940370411]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=897430839]
-position = Vector2(300, 316)
+position = Vector2(300, 323)
 script = ExtResource("1_a2ci1")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Player" unique_id=19575483]
@@ -700,10 +700,12 @@ z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 12.0
-offset_top = 4.0
-offset_right = 12.0
-offset_bottom = 4.0
+offset_left = 19.0
+offset_top = 46.0
+offset_right = 19.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.1265099, 0.4610886, 0.48019242, 1)
+
+[connection signal="body_entered" from="Player/PatasDireita" to="Player" method="pata_direita"]

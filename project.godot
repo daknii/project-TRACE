@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Project TRACE"
-run/main_scene="uid://cjjxfnpqchhdy"
+run/main_scene="uid://bqtyyk0x10com"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Constants="*uid://cr11pb1tvf0m4"
 
 [display]
 
