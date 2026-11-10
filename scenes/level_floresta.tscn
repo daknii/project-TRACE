@@ -9,12 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://c2w3ubo1udr1a" path="res://assets/sprites/templete-free/individual_sheets/male_hero_template-walk.png" id="7_5em3x"]
 [ext_resource type="Texture2D" uid="uid://cpfd8848tmpmn" path="res://assets/sprites/Mossy Tileset/Mossy - Decorations&Hazards.png" id="9_dec"]
 [ext_resource type="Texture2D" uid="uid://cpjur4tnkitxs" path="res://assets/sprites/Mossy Tileset/Mossy - BackgroundDecoration.png" id="10_bg"]
+[ext_resource type="Texture2D" uid="uid://cxj4ce8bbrn5" path="res://assets/sprites/Mossy Tileset/1794310819452195819 (1).png" id="10_pbxy0"]
 [ext_resource type="Shader" uid="uid://cw77tkgfjg2wv" path="res://scenes/level_debug.gdshader" id="11_shader"]
 [ext_resource type="TileSet" uid="uid://b2mlgu75nsgsc" path="res://components/tilesets/mossy.tres" id="12_56dri"]
 [ext_resource type="Script" uid="uid://baeaviml207go" path="res://scripts/blur_world.gd" id="12_blur"]
 [ext_resource type="Texture2D" uid="uid://charevfhcukge" path="res://assets/sprites/Mossy Tileset/Mossy - Hanging Plants.png" id="13_hang"]
 [ext_resource type="Texture2D" uid="uid://bnkkbtexr8u6g" path="res://assets/sprites/Mossy Tileset/Mossy - MossyHills.png" id="14_hill"]
 [ext_resource type="Texture2D" uid="uid://d0ipymoawulcl" path="res://assets/sprites/Mossy Tileset/Mossy - FloatingPlatforms.png" id="15_plat"]
+[ext_resource type="Texture2D" uid="uid://bhmv3ghyqdsxu" path="res://assets/sprites/SlimeGreen/SlimeBasic_00001.png" id="17_1fkai"]
+[ext_resource type="Script" uid="uid://ygd08ktkt8w2" path="res://scripts/enemy/enemy.gd" id="17_ntovh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7061b"]
 atlas = ExtResource("2_o2ktg")
@@ -406,6 +409,10 @@ shader_parameter/blur_amount = 2.0
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.5
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ntovh"]
+radius = 20.0
+height = 40.0
+
 [node name="level_floresta" type="Node2D" unique_id=1385402910]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=93916341]
@@ -466,6 +473,7 @@ scale = Vector2(1.6, 1.4)
 texture = SubResource("GradientTexture2D_luz")
 
 [node name="Silhuetas" type="Node2D" parent="Paralaxe" unique_id=426402348]
+modulate = Color(0.43137255, 0.5882353, 0.5764706, 1)
 scale = Vector2(0.3, 0.3)
 
 [node name="ColunaLonge" type="Sprite2D" parent="Paralaxe/Silhuetas" unique_id=1898363313]
@@ -603,7 +611,15 @@ texture = ExtResource("10_bg")
 region_enabled = true
 region_rect = Rect2(2672, 128, 1088, 1000)
 
+[node name="Parallax2D" type="Parallax2D" parent="Paralaxe" unique_id=64420387]
+scroll_scale = Vector2(0.5, 0.5)
+
+[node name="1794310819452195819(1)" type="Sprite2D" parent="Paralaxe/Parallax2D" unique_id=1710256231]
+position = Vector2(791, 357)
+texture = ExtResource("10_pbxy0")
+
 [node name="Mundo" type="Node2D" parent="." unique_id=1472373050]
+modulate = Color(0.43137255, 0.5882353, 0.5764706, 1)
 scale = Vector2(0.3, 0.3)
 
 [node name="Fundo" type="Node2D" parent="Mundo" unique_id=493466980]
@@ -868,6 +884,7 @@ region_rect = Rect2(1600, 400, 1144, 512)
 polygon = PackedVector2Array(-450, -195, 250, -218, 420, -60, 440, 256, -470, 256)
 
 [node name="Terreno" type="TileMapLayer" parent="Mundo" unique_id=122167782]
+modulate = Color(0.43137255, 0.5882353, 0.5764706, 1)
 z_index = 1
 tile_map_data = PackedByteArray("AAD//wAAAAACAAIAAAAAAAAAAAAJAAEAAAABAAAAAAACAAUAAAACAAAAAAADAAUAAAADAAAAAAAEAAUAAAAEAAAAAAABAAUAAAAFAAAAAAACAAUAAAAGAAAAAAADAAUAAAAHAAAAAAAEAAUAAAAIAAAAAAABAAUAAAAJAAAAAAACAAUAAAAKAAAAAAADAAUAAAALAAAAAAAEAAUAAAAMAAAAAAABAAUAAAANAAAAAAACAAUAAAAOAAAAAAADAAUAAAAPAAAAAAAKAAEAAAAQAAAAAAACAAIAAAD//wEAAAACAAIAAAAAAAEAAAAFAAEAAAAPAAEAAAAAAAEAAAAQAAEAAAACAAIAAAD//wIAAAACAAIAAAAAAAIAAAAFAAIAAAAPAAIAAAAAAAIAAAAQAAIAAAACAAIAAAD//wMAAAACAAIAAAAAAAMAAAAFAAMAAAAPAAMAAAAAAAMAAAAQAAMAAAACAAIAAAD//wQAAAACAAUAAAAAAAQAAAAFAAUAAAAPAAQAAAAAAAUAAAAQAAQAAAADAAUAAAD//wYAAAAEAAAAAAAAAAYAAAABAAAAAAABAAYAAAACAAAAAAACAAYAAAAFAAAAAAADAAYAAAABAAYAAAAEAAYAAAACAAYAAAAFAAYAAAADAAYAAAAGAAYAAAAEAAYAAAAKAAYAAAABAAYAAAALAAYAAAACAAYAAAAMAAYAAAADAAYAAAANAAYAAAAEAAYAAAAOAAYAAAAAAAAAAAAPAAYAAAAEAAAAAAAQAAYAAAABAAAAAAD//wcAAAAEAAUAAAAAAAcAAAABAAUAAAABAAcAAAACAAUAAAACAAcAAAAFAAUAAAADAAcAAAABAAcAAAAEAAcAAAACAAcAAAAFAAcAAAADAAcAAAAGAAcAAAAEAAcAAAAKAAcAAAABAAcAAAALAAcAAAACAAcAAAAMAAcAAAADAAcAAAANAAcAAAAEAAcAAAAOAAcAAAAAAAUAAAAPAAcAAAAEAAUAAAAQAAcAAAABAAUAAAD//wkAAAACAAAAAAAAAAkAAAADAAAAAAABAAkAAAAEAAAAAAACAAkAAAABAAAAAAADAAkAAAACAAAAAAAEAAkAAAADAAAAAAAFAAkAAAAEAAAAAAAGAAkAAAABAAAAAAAHAAkAAAACAAAAAAAIAAkAAAADAAAAAAAJAAkAAAAEAAAAAAAKAAkAAAABAAAAAAALAAkAAAACAAAAAAAMAAkAAAADAAAAAAANAAkAAAAEAAAAAAAOAAkAAAABAAAAAAAPAAkAAAACAAAAAAAQAAkAAAADAAAAAAD//woAAAACAAIAAAAAAAoAAAACAAIAAAABAAoAAAACAAIAAAACAAoAAAACAAIAAAADAAoAAAACAAIAAAAEAAoAAAACAAIAAAAFAAoAAAACAAIAAAAGAAoAAAACAAIAAAAHAAoAAAACAAIAAAAIAAoAAAACAAIAAAAJAAoAAAACAAIAAAAKAAoAAAACAAIAAAALAAoAAAACAAIAAAAMAAoAAAACAAIAAAANAAoAAAACAAIAAAAOAAoAAAACAAIAAAAPAAoAAAACAAIAAAAQAAoAAAACAAIAAAD//wsAAAACAAIAAAAAAAsAAAACAAIAAAABAAsAAAACAAIAAAACAAsAAAACAAIAAAADAAsAAAACAAIAAAAEAAsAAAACAAIAAAAFAAsAAAACAAIAAAAGAAsAAAACAAIAAAAHAAsAAAACAAIAAAAIAAsAAAACAAIAAAAJAAsAAAACAAIAAAAKAAsAAAACAAIAAAALAAsAAAACAAIAAAAMAAsAAAACAAIAAAANAAsAAAACAAIAAAAOAAsAAAACAAIAAAAPAAsAAAACAAIAAAAQAAsAAAACAAIAAAD//wwAAAACAAIAAAAAAAwAAAACAAIAAAABAAwAAAACAAIAAAACAAwAAAACAAIAAAADAAwAAAACAAIAAAAEAAwAAAACAAIAAAAFAAwAAAACAAIAAAAGAAwAAAACAAIAAAAHAAwAAAACAAIAAAAIAAwAAAACAAIAAAAJAAwAAAACAAIAAAAKAAwAAAACAAIAAAALAAwAAAACAAIAAAAMAAwAAAACAAIAAAANAAwAAAACAAIAAAAOAAwAAAACAAIAAAAPAAwAAAACAAIAAAAQAAwAAAACAAIAAAAIAAMAAAAGAAEAAAAIAAQAAAAGAAEAAAAJAAMAAAAHAAEAAAAJAAQAAAAHAAEAAAAIAAUAAAAGAAUAAAAJAAUAAAAHAAUAAAAIAAIAAAAGAAAAAAAJAAIAAAAHAAAAAAA=")
 tile_set = ExtResource("12_56dri")
@@ -1064,6 +1081,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.105, 0.27, 0.29, 1)
+
+[node name="Enemy" type="CharacterBody2D" parent="." unique_id=1777557332]
+position = Vector2(332, 245)
+script = ExtResource("17_ntovh")
+
+[node name="desenho" type="Sprite2D" parent="Enemy" unique_id=1726078914]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("17_1fkai")
+
+[node name="colisao" type="CollisionShape2D" parent="Enemy" unique_id=958419256]
+position = Vector2(-0.5, 0)
+shape = SubResource("CapsuleShape2D_ntovh")
+
+[node name="olhar_esquerdo" type="RayCast2D" parent="Enemy" unique_id=1476941775]
+target_position = Vector2(-135, 0)
+
+[node name="olhar_direito" type="RayCast2D" parent="Enemy" unique_id=1709155005]
+target_position = Vector2(138, 0)
+
+[node name="tem_chao_esquerdo" type="RayCast2D" parent="Enemy" unique_id=1226437686]
+target_position = Vector2(-46, 35)
+
+[node name="tem_chao_direita" type="RayCast2D" parent="Enemy" unique_id=760431844]
+target_position = Vector2(42, 37)
 
 [connection signal="body_entered" from="Player/PatasDireita" to="Player" method="pata_direita"]
 [connection signal="body_exited" from="Player/PatasDireita" to="Player" method="sem_agarre"]
