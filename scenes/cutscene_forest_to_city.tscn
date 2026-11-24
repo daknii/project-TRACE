@@ -4,6 +4,11 @@
 [ext_resource type="Texture2D" path="res://assets/cutscenes/forest_to_city_01_edge.png" id="2_s1"]
 [ext_resource type="Texture2D" path="res://assets/cutscenes/forest_to_city_02_overgrown.png" id="3_s2"]
 [ext_resource type="Texture2D" path="res://assets/cutscenes/forest_to_city_03_outskirts.png" id="4_s3"]
+[ext_resource type="AudioStream" path="res://Fantasy music Pack/Native Reincarnation Lost.wav" id="5_bgm"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_bgm"]
+stream_count = 1
+stream_0 = ExtResource("5_bgm")
 
 [sub_resource type="Gradient" id="Gradient_vignette"]
 offsets = PackedFloat32Array(0.45, 1)
@@ -154,5 +159,11 @@ color = Color(0.02, 0.05, 0.06, 1)
 
 [node name="SlideTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamPlaylist_bgm")
+volume_db = -6.0
+autoplay = true
 
 [connection signal="timeout" from="SlideTimer" to="." method="_on_slide_timer_timeout"]

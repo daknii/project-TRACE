@@ -15,6 +15,9 @@ signal morreu
 @export_range(0.0, 30.0, 0.5) var hit_shake_strength: float = 9.0
 @export_range(5.0, 80.0, 1.0) var hit_shake_decay: float = 34.0
 @export_range(0.0, 40.0, 1.0) var death_camera_shake: float = 16.0
+@export var death_particles_scene: PackedScene = preload("res://components/enemy_death_particles.tscn")
+@export var death_particle_color: Color = Color(1.0, 0.36, 0.22, 1.0)
+@export_range(0.3, 4.0, 0.1) var death_particle_scale: float = 2.2
 
 @onready var _visuals: Node2D = $Visuals
 @onready var _floor_check_left: RayCast2D = $FloorCheckLeft
@@ -118,11 +121,28 @@ func _play_hit_feedback() -> void:
 
 func _morrer() -> void:
 	esta_morto = true
+	_spawn_death_particles()
 	var player: Node = get_tree().get_first_node_in_group("player")
 	if player and player.has_method("apply_camera_shake"):
 		player.call("apply_camera_shake", death_camera_shake)
 	morreu.emit()
 	call_deferred("queue_free")
+
+
+func _spawn_death_particles() -> void:
+	if death_particles_scene == null:
+		return
+	var particles: Node2D = death_particles_scene.instantiate() as Node2D
+	if particles == null:
+		return
+	var parent_node: Node = get_parent() if get_parent() else get_tree().current_scene
+	if parent_node == null:
+		particles.queue_free()
+		return
+	parent_node.add_child(particles)
+	particles.global_position = global_position
+	if particles.has_method("configure"):
+		particles.call("configure", death_particle_color, death_particle_scale)
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:

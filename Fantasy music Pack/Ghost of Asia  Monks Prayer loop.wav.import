@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://l5tvv28ca6x4"
+path="res://.godot/imported/Ghost of Asia  Monks Prayer loop.wav-0e98e078e75a40526066b27314c4552e.sample"
+
+[deps]
+
+source_file="res://Fantasy music Pack/Ghost of Asia  Monks Prayer loop.wav"
+dest_files=["res://.godot/imported/Ghost of Asia  Monks Prayer loop.wav-0e98e078e75a40526066b27314c4552e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

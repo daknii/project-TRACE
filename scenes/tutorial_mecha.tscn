@@ -3,6 +3,11 @@
 [ext_resource type="Script" path="res://scripts/ui/transition_slideshow.gd" id="1_script"]
 [ext_resource type="Texture2D" path="res://assets/cutscenes/tutorial_mecha_01_controls.png" id="2_t1"]
 [ext_resource type="Texture2D" path="res://assets/cutscenes/tutorial_mecha_02_stagger.png" id="3_t2"]
+[ext_resource type="AudioStream" path="res://Fantasy music Pack/Trailer Thalvoria.wav" id="4_bgm"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_bgm"]
+stream_count = 1
+stream_0 = ExtResource("4_bgm")
 
 [sub_resource type="Gradient" id="Gradient_vignette"]
 offsets = PackedFloat32Array(0.52, 1)
@@ -154,5 +159,11 @@ color = Color(0.03, 0.04, 0.06, 1)
 
 [node name="SlideTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamPlaylist_bgm")
+volume_db = -6.0
+autoplay = true
 
 [connection signal="timeout" from="SlideTimer" to="." method="_on_slide_timer_timeout"]

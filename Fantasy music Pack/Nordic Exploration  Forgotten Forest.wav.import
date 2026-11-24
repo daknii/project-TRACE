@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bad07hdu6o7br"
+path="res://.godot/imported/Nordic Exploration  Forgotten Forest.wav-f49c64640842179a5f04ebc8f33a7413.sample"
+
+[deps]
+
+source_file="res://Fantasy music Pack/Nordic Exploration  Forgotten Forest.wav"
+dest_files=["res://.godot/imported/Nordic Exploration  Forgotten Forest.wav-f49c64640842179a5f04ebc8f33a7413.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

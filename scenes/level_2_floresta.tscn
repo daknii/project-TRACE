@@ -17,6 +17,15 @@
 [ext_resource type="Texture2D" uid="uid://c3xmj7gw00ya" path="res://assets/sprites/Carcaca/Carcaca - BgSilhouettes.png" id="16_bgcarc"]
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="17_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/death_screen.tscn" id="18_death"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud_zona.tscn" id="19_hudzona"]
+[ext_resource type="PackedScene" path="res://scenes/player/gato_ameba.tscn" id="19_gato"]
+[ext_resource type="AudioStream" path="res://Fantasy music Pack/WildWest2_Danger Side.wav" id="20_bgm1"]
+[ext_resource type="AudioStream" path="res://Fantasy music Pack/Fantasy The Smoking Caterpillar Alt Loop.wav" id="21_bgm2"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_bgm"]
+stream_count = 2
+stream_0 = ExtResource("20_bgm1")
+stream_1 = ExtResource("21_bgm2")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7061b"]
 atlas = ExtResource("2_gej1d")
@@ -539,12 +548,16 @@ script = ExtResource("1_g10qg")
 attack_obj = ExtResource("2_4sin2")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Player" unique_id=831912476]
+visible = false
 light_mask = 2
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_3nqnr")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="GatoAmeba" parent="Player" instance=ExtResource("19_gato")]
+light_mask = 2
 
 [node name="Collision" type="CollisionShape2D" parent="Player" unique_id=1979927481]
 shape = SubResource("CapsuleShape2D_k4pr2")
@@ -931,6 +944,8 @@ expand_mode = 1
 [node name="HudVida" parent="." unique_id=1555535129 node_paths=PackedStringArray("player") instance=ExtResource("14_hudvida")]
 player = NodePath("../Player")
 
+[node name="HudZona" parent="." instance=ExtResource("19_hudzona")]
+
 [node name="PauseMenu" parent="." instance=ExtResource("17_pause")]
 
 [node name="DeathScreen" parent="." node_paths=PackedStringArray("player") instance=ExtResource("18_death")]
@@ -951,7 +966,15 @@ color = Color(0.015, 0.02, 0.045, 0)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TransicaoZona" unique_id=1770849538]
 libraries/ = SubResource("AnimationLibrary_fade")
 
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamPlaylist_bgm")
+volume_db = -6.0
+autoplay = true
+
 [connection signal="vida_alterada" from="Player" to="HudVida" method="_on_vida_alterada"]
+[connection signal="zona_entrada" from="ZoneManager" to="HudZona" method="exibir_zona"]
+[connection signal="zona_trocando" from="ZoneManager" to="HudZona" method="esconder_imediato"]
 [connection signal="body_entered" from="Player/PatasDireita" to="Player" method="pata_direita"]
 [connection signal="body_exited" from="Player/PatasDireita" to="Player" method="sem_agarre"]
 [connection signal="body_entered" from="Player/PatasEsquerda" to="Player" method="pata_esquerda"]

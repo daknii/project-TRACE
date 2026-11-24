@@ -4,6 +4,7 @@
 [ext_resource type="TileSet" uid="uid://cwh8fu5g6yyww" path="res://components/tilesets/cidade.tres" id="2_tiles"]
 [ext_resource type="Texture2D" uid="uid://bhqyynfq22euj" path="res://assets/sprites/Cidade/Cidade - Props.png" id="3_props"]
 [ext_resource type="PackedScene" path="res://components/zone_portal.tscn" id="4_portal"]
+[ext_resource type="PackedScene" path="res://components/city_drone.tscn" id="6_vbqao"]
 [ext_resource type="Texture2D" uid="uid://g5qmrbsl8yby" path="res://assets/sprites/Cidade/Cidade - RuinsLayer.png" id="8_ruins"]
 
 [sub_resource type="Gradient" id="Gradient_lamp"]
@@ -194,3 +195,18 @@ shape = SubResource("WorldBoundaryShape2D_esq")
 [node name="Direita" type="CollisionShape2D" parent="Limites" unique_id=1042740804]
 position = Vector2(1536, 0)
 shape = SubResource("WorldBoundaryShape2D_dir")
+
+[node name="CityDrone1" parent="." unique_id=1287241683 instance=ExtResource("6_vbqao")]
+position = Vector2(1304, 1200)
+
+[node name="CityDrone2" parent="." unique_id=381697477 instance=ExtResource("6_vbqao")]
+position = Vector2(616, 1120)
+
+[node name="CityDrone3" parent="." unique_id=1781815566 instance=ExtResource("6_vbqao")]
+position = Vector2(299, 817)
+
+[node name="CityDrone4" parent="." unique_id=796957055 instance=ExtResource("6_vbqao")]
+position = Vector2(1212, 657)
+
+[node name="CityDrone5" parent="." unique_id=1290344569 instance=ExtResource("6_vbqao")]
+position = Vector2(395, 344)

@@ -14,6 +14,11 @@
 [ext_resource type="Shader" path="res://shaders/drifting_white_fog.gdshader" id="12_fog_shader"]
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="13_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/death_screen.tscn" id="14_death"]
+[ext_resource type="AudioStream" path="res://Fantasy music Pack/Trailer Horns of War.wav" id="15_bgm"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_bgm"]
+stream_count = 1
+stream_0 = ExtResource("15_bgm")
 
 [sub_resource type="Gradient" id="Gradient_sky"]
 offsets = PackedFloat32Array(0, 0.55, 1)
@@ -503,6 +508,12 @@ open_delay = 0.75
 
 [node name="EndDelayTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamPlaylist_bgm")
+volume_db = -6.0
+autoplay = true
 
 [node name="FadeLayer" type="CanvasLayer" parent="."]
 layer = 35

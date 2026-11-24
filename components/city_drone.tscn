@@ -13,6 +13,7 @@ radius = 28.0
 [node name="CityDrone" type="CharacterBody2D"]
 z_index = 2
 script = ExtResource("1_enemy")
+death_particle_color = Color(1, 0.48, 0.2, 1)
 
 [node name="desenho" type="Sprite2D" parent="."]
 position = Vector2(0, -8)

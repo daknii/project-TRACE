@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c3vpbrue3ko82"
+path="res://.godot/imported/Ghost of Asia Princess of the Moon loop.wav-429ada12021d4c00b6ff4054f3aaa96e.sample"
+
+[deps]
+
+source_file="res://Fantasy music Pack/Ghost of Asia Princess of the Moon loop.wav"
+dest_files=["res://.godot/imported/Ghost of Asia Princess of the Moon loop.wav-429ada12021d4c00b6ff4054f3aaa96e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

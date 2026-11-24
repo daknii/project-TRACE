@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://rcqg1slqty26"
+path="res://.godot/imported/WildWest2_Danger Side.wav-a382183102f700bc56fc743f3116d0da.sample"
+
+[deps]
+
+source_file="res://Fantasy music Pack/WildWest2_Danger Side.wav"
+dest_files=["res://.godot/imported/WildWest2_Danger Side.wav-a382183102f700bc56fc743f3116d0da.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

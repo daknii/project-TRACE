@@ -13,6 +13,7 @@ radius = 30.016663
 [node name="CarcacaEnemy" type="CharacterBody2D"]
 z_index = 2
 script = ExtResource("1_enemy")
+death_particle_color = Color(0.38, 0.92, 1, 1)
 
 [node name="desenho" type="Sprite2D" parent="."]
 position = Vector2(0, -19.999998)

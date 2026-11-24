@@ -1,0 +1,456 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/player/gato_ameba.gd" id="1_script"]
+[ext_resource type="Shader" path="res://shaders/gato_ameba.gdshader" id="2_shader"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aura"]
+blend_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rastro"]
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_rastro"]
+_data = [Vector2(0, 0.02), 0.0, 0.5, 0, 0, Vector2(0.7, 0.58), 1.0, 1.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_rastro"]
+offsets = PackedFloat32Array(0, 0.4, 0.82, 1)
+colors = PackedColorArray(0.7, 0.03, 0.07, 0, 0.96, 0.08, 0.14, 0.72, 1.25, 0.16, 0.2, 0.94, 1.4, 0.42, 0.36, 0.96)
+
+[sub_resource type="Gradient" id="Gradient_aura"]
+offsets = PackedFloat32Array(0, 0.52, 1)
+colors = PackedColorArray(0.84, 0.98, 1, 0.42, 0.72, 0.94, 1, 0.14, 0.72, 0.94, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aura"]
+gradient = SubResource("Gradient_aura")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ameba"]
+shader = ExtResource("2_shader")
+shader_parameter/rect_size = Vector2(220, 200)
+shader_parameter/rect_origin = Vector2(-110, -120)
+shader_parameter/cor_base = Color(0.97, 0.99, 1, 1)
+shader_parameter/cor_sombra = Color(0.7, 0.8, 0.89, 1)
+shader_parameter/cor_brilho = Color(0.84, 0.98, 1, 1)
+shader_parameter/cor_contorno = Color(0.56, 0.68, 0.78, 0.72)
+shader_parameter/intensidade_aura = 0.28
+shader_parameter/flash_dano = 0.0
+shader_parameter/facing = 1.0
+shader_parameter/head_pos = Vector2(0, 6.5)
+shader_parameter/head_radii = Vector2(17.2, 15)
+shader_parameter/head_rot = 0.0
+shader_parameter/ear_l_base = Vector2(-9.2, -0.5)
+shader_parameter/ear_l_tip = Vector2(-11.8, -12.7)
+shader_parameter/ear_r_base = Vector2(9.2, -0.5)
+shader_parameter/ear_r_tip = Vector2(11.8, -12.7)
+shader_parameter/ear_r_base_size = 5.4
+shader_parameter/ear_r_tip_size = 2.0
+shader_parameter/torso_pos = Vector2(0, 21.5)
+shader_parameter/torso_r = 15.8
+shader_parameter/hip_pos = Vector2(0, 33)
+shader_parameter/hip_r = 19.2
+shader_parameter/base_l_pos = Vector2(-10.5, 39)
+shader_parameter/base_l_r = 11.2
+shader_parameter/base_r_pos = Vector2(10.5, 39)
+shader_parameter/base_r_r = 11.2
+shader_parameter/tail_p0 = Vector2(-13, 35.5)
+shader_parameter/tail_p1 = Vector2(-24.5, 33)
+shader_parameter/tail_p2 = Vector2(-29, 16.5)
+shader_parameter/tail_r0 = 6.2
+shader_parameter/tail_r1 = 4.6
+shader_parameter/tail_r2 = 2.6
+shader_parameter/tail_weight = 0.88
+shader_parameter/paw_base = Vector2(8, 14)
+shader_parameter/paw_tip = Vector2(40, 4)
+shader_parameter/paw_r_base = 5.2
+shader_parameter/paw_r_tip = 7.4
+shader_parameter/paw_weight = 0.0
+shader_parameter/ground_y_l = 49.0
+shader_parameter/ground_y_c = 49.0
+shader_parameter/ground_y_r = 49.0
+shader_parameter/ground_blend = 1.0
+shader_parameter/wall_x = 14.0
+shader_parameter/wall_dir = 1.0
+shader_parameter/wall_blend = 0.0
+shader_parameter/ceil_y = -60.0
+shader_parameter/ceil_blend = 0.0
+
+[sub_resource type="Gradient" id="Gradient_bochecha"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 0.71, 0.64, 0.72, 1, 0.74, 0.68, 0.25, 1, 0.74, 0.68, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bochecha"]
+gradient = SubResource("Gradient_bochecha")
+width = 24
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rosto/OlhoEsq:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rosto/OlhoDir:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:ataque_peso")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:ataque_alcance")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:ataque_arco")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_piscar"]
+resource_name = "piscar"
+length = 0.16
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rosto/OlhoEsq:scale:y")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.08, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rosto/OlhoDir:scale:y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.16),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.08, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_dano"]
+resource_name = "dano"
+length = 0.34
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rosto/OlhoEsq:scale:y")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.22, 0.34),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.15, 0.15, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rosto/OlhoDir:scale:y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.22, 0.34),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.15, 0.15, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_ataque"]
+resource_name = "ataque"
+length = 0.42
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Rosto/OlhoEsq:scale:y")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.24, 0.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.62, 0.68, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Rosto/OlhoDir:scale:y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06, 0.24, 0.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 0.62, 0.68, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:ataque_peso")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.27, 0.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:ataque_alcance")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.13, 0.27, 0.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.28, 1.12, 0.92, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:ataque_arco")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.14, 0.27, 0.42),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.95, -0.88, 0.85, 0.55, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rosto"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"ataque": SubResource("Animation_ataque"),
+&"dano": SubResource("Animation_dano"),
+&"piscar": SubResource("Animation_piscar")
+}
+
+[node name="GatoAmeba" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="AuraSuave" type="Sprite2D" parent="."]
+z_index = -1
+modulate = Color(0.84, 0.98, 1, 0.2)
+material = SubResource("CanvasItemMaterial_aura")
+position = Vector2(0, 28)
+texture = SubResource("GradientTexture2D_aura")
+
+[node name="RastroPata" type="Line2D" parent="."]
+z_index = -1
+material = SubResource("CanvasItemMaterial_rastro")
+width = 6.5
+width_curve = SubResource("Curve_rastro")
+default_color = Color(1, 0.12, 0.16, 1)
+gradient = SubResource("Gradient_rastro")
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="CorpoShader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ameba")
+offset_left = -110.0
+offset_top = -120.0
+offset_right = 110.0
+offset_bottom = 80.0
+mouse_filter = 2
+
+[node name="Rosto" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(0, 8.3)
+
+[node name="BochechaEsq" type="Sprite2D" parent="Rosto"]
+modulate = Color(1, 1, 1, 0.48)
+position = Vector2(-9.2, 2.4)
+scale = Vector2(0.42, 0.36)
+texture = SubResource("GradientTexture2D_bochecha")
+
+[node name="BochechaDir" type="Sprite2D" parent="Rosto"]
+modulate = Color(1, 1, 1, 0.48)
+position = Vector2(9.2, 2.4)
+scale = Vector2(0.42, 0.36)
+texture = SubResource("GradientTexture2D_bochecha")
+
+[node name="OlhoEsq" type="Node2D" parent="Rosto"]
+position = Vector2(-5.6, -1.2)
+
+[node name="Iris" type="Polygon2D" parent="Rosto/OlhoEsq"]
+color = Color(0.17, 0.13, 0.12, 1)
+antialiased = true
+polygon = PackedVector2Array(2.6, 0, 2.25, 1.75, 1.3, 3.03, 0, 3.5, -1.3, 3.03, -2.25, 1.75, -2.6, 0, -2.25, -1.75, -1.3, -3.03, 0, -3.5, 1.3, -3.03, 2.25, -1.75)
+
+[node name="Brilho" type="Polygon2D" parent="Rosto/OlhoEsq"]
+position = Vector2(-0.75, -1.2)
+color = Color(1, 0.99, 0.97, 0.95)
+antialiased = true
+polygon = PackedVector2Array(0.95, 0, 0.67, 0.81, 0, 1.15, -0.67, 0.81, -0.95, 0, -0.67, -0.81, 0, -1.15, 0.67, -0.81)
+
+[node name="BrilhoMenor" type="Polygon2D" parent="Rosto/OlhoEsq"]
+position = Vector2(0.75, 1.2)
+color = Color(1, 0.99, 0.97, 0.65)
+antialiased = true
+polygon = PackedVector2Array(0.45, 0, 0.32, 0.32, 0, 0.45, -0.32, 0.32, -0.45, 0, -0.32, -0.32, 0, -0.45, 0.32, -0.32)
+
+[node name="OlhoDir" type="Node2D" parent="Rosto"]
+position = Vector2(5.6, -1.2)
+
+[node name="Iris" type="Polygon2D" parent="Rosto/OlhoDir"]
+color = Color(0.17, 0.13, 0.12, 1)
+antialiased = true
+polygon = PackedVector2Array(2.6, 0, 2.25, 1.75, 1.3, 3.03, 0, 3.5, -1.3, 3.03, -2.25, 1.75, -2.6, 0, -2.25, -1.75, -1.3, -3.03, 0, -3.5, 1.3, -3.03, 2.25, -1.75)
+
+[node name="Brilho" type="Polygon2D" parent="Rosto/OlhoDir"]
+position = Vector2(-0.75, -1.2)
+color = Color(1, 0.99, 0.97, 0.95)
+antialiased = true
+polygon = PackedVector2Array(0.95, 0, 0.67, 0.81, 0, 1.15, -0.67, 0.81, -0.95, 0, -0.67, -0.81, 0, -1.15, 0.67, -0.81)
+
+[node name="BrilhoMenor" type="Polygon2D" parent="Rosto/OlhoDir"]
+position = Vector2(0.75, 1.2)
+color = Color(1, 0.99, 0.97, 0.65)
+antialiased = true
+polygon = PackedVector2Array(0.45, 0, 0.32, 0.32, 0, 0.45, -0.32, 0.32, -0.45, 0, -0.32, -0.32, 0, -0.45, 0.32, -0.32)
+
+[node name="Focinho" type="Node2D" parent="Rosto"]
+position = Vector2(0, 3)
+
+[node name="Nariz" type="Polygon2D" parent="Rosto/Focinho"]
+position = Vector2(0, -1.4)
+color = Color(0.32, 0.25, 0.24, 0.95)
+antialiased = true
+polygon = PackedVector2Array(-1.15, -0.55, 1.15, -0.55, 0.6, 0.55, 0, 0.8, -0.6, 0.55)
+
+[node name="Boca" type="Line2D" parent="Rosto/Focinho"]
+points = PackedVector2Array(-3.2, 0.25, -2.3, 1.35, -1.1, 1.35, 0, 0.05, 1.1, 1.35, 2.3, 1.35, 3.2, 0.25)
+width = 1.45
+default_color = Color(0.24, 0.19, 0.18, 0.95)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="BigodeEsq" type="Node2D" parent="Rosto"]
+position = Vector2(-15.2, 1.6)
+
+[node name="Fio1" type="Line2D" parent="Rosto/BigodeEsq"]
+points = PackedVector2Array(-0.6, -1.6, -4.8, -2.6)
+width = 1.45
+default_color = Color(0.25, 0.21, 0.21, 0.86)
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="Fio2" type="Line2D" parent="Rosto/BigodeEsq"]
+points = PackedVector2Array(-0.6, 1.5, -4.6, 2.5)
+width = 1.45
+default_color = Color(0.25, 0.21, 0.21, 0.86)
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="BigodeDir" type="Node2D" parent="Rosto"]
+position = Vector2(15.2, 1.6)
+
+[node name="Fio1" type="Line2D" parent="Rosto/BigodeDir"]
+points = PackedVector2Array(0.6, -1.6, 4.8, -2.6)
+width = 1.45
+default_color = Color(0.25, 0.21, 0.21, 0.86)
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="Fio2" type="Line2D" parent="Rosto/BigodeDir"]
+points = PackedVector2Array(0.6, 1.5, 4.6, 2.5)
+width = 1.45
+default_color = Color(0.25, 0.21, 0.21, 0.86)
+begin_cap_mode = 2
+end_cap_mode = 2
+antialiased = true
+
+[node name="SondasAmbiente" type="Node2D" parent="."]
+
+[node name="ChaoEsq" type="RayCast2D" parent="SondasAmbiente"]
+position = Vector2(-22, 10)
+target_position = Vector2(0, 75)
+
+[node name="ChaoCentro" type="RayCast2D" parent="SondasAmbiente"]
+position = Vector2(0, 10)
+target_position = Vector2(0, 75)
+
+[node name="ChaoDir" type="RayCast2D" parent="SondasAmbiente"]
+position = Vector2(22, 10)
+target_position = Vector2(0, 75)
+
+[node name="ParedeEsq" type="RayCast2D" parent="SondasAmbiente"]
+position = Vector2(0, 12)
+target_position = Vector2(-46, 0)
+
+[node name="ParedeDir" type="RayCast2D" parent="SondasAmbiente"]
+position = Vector2(0, 12)
+target_position = Vector2(46, 0)
+
+[node name="Teto" type="RayCast2D" parent="SondasAmbiente"]
+position = Vector2(0, -4)
+target_position = Vector2(0, -50)
+
+[node name="AnimacaoRosto" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rosto")
+}

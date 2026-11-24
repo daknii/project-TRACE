@@ -6,6 +6,11 @@
 [ext_resource type="FontFile" path="res://assets/fonts/LiberationSerif-Bold.ttf" id="4_font_serif"]
 [ext_resource type="FontFile" path="res://assets/fonts/LiberationSerif-BoldItalic.ttf" id="5_font_italic"]
 [ext_resource type="FontFile" path="res://assets/fonts/Chilanka-Regular.otf" id="6_font_btn"]
+[ext_resource type="AudioStream" path="res://Fantasy music Pack/Nordic Exploration  The Ancient Moon.wav" id="7_bgm"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_bgm"]
+stream_count = 1
+stream_0 = ExtResource("7_bgm")
 
 [sub_resource type="Gradient" id="Gradient_bottom_wash"]
 offsets = PackedFloat32Array(0, 0.62, 1)
@@ -371,6 +376,12 @@ color = Color(0.08, 0.11, 0.1, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_menu")
 }
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamPlaylist_bgm")
+volume_db = -6.0
+autoplay = true
 
 [connection signal="pressed" from="SafeMargin/BottomBar/ButtonRow/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="SafeMargin/BottomBar/ButtonRow/QuitButton" to="." method="_on_quit_button_pressed"]

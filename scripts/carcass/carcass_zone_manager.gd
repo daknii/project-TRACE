@@ -1,6 +1,9 @@
 class_name CarcassZoneManager
 extends CityZoneManager
 
+signal zona_trocando
+signal zona_entrada(titulo: String)
+
 @export var fireflies_path: NodePath = NodePath("../Vagalumes")
 @export var abyss_particles_path: NodePath = NodePath("../ParticulasAbismo")
 
@@ -8,7 +11,17 @@ extends CityZoneManager
 @onready var _abyss_particles: CPUParticles2D = get_node_or_null(abyss_particles_path) as CPUParticles2D
 
 
+func _swap_zone(zone_id: StringName, spawn_id: StringName, with_fade: bool) -> void:
+	var previous_zone: CityZone = _current_zone
+	await super._swap_zone(zone_id, spawn_id, with_fade)
+	if not is_inside_tree():
+		return
+	if is_instance_valid(_current_zone) and _current_zone != previous_zone:
+		zona_entrada.emit(_current_zone.zone_title)
+
+
 func _apply_zone_settings(zone: CityZone, spawn_id: StringName) -> void:
+	zona_trocando.emit()
 	super._apply_zone_settings(zone, spawn_id)
 
 	var bounds: Rect2i = zone.camera_bounds

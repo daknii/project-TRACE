@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dposdwpwo2ano"
+path="res://.godot/imported/Nordic Gamle Fortellinger.wav-7ddc77f96eb5f8a273ba553c04d1fb4f.sample"
+
+[deps]
+
+source_file="res://Fantasy music Pack/Nordic Gamle Fortellinger.wav"
+dest_files=["res://.godot/imported/Nordic Gamle Fortellinger.wav-7ddc77f96eb5f8a273ba553c04d1fb4f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

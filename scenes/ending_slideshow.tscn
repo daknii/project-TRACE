@@ -1,6 +1,11 @@
 [gd_scene format=3]
 
 [ext_resource type="Script" path="res://scripts/ui/ending_slideshow.gd" id="1_script"]
+[ext_resource type="AudioStream" path="res://Fantasy music Pack/Ghost of Asia Princess of the Moon loop.wav" id="2_bgm"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_bgm"]
+stream_count = 1
+stream_0 = ExtResource("2_bgm")
 
 [sub_resource type="Gradient" id="Gradient_vignette"]
 offsets = PackedFloat32Array(0.48, 1)
@@ -194,6 +199,12 @@ color = Color(1, 0.99, 0.95, 1)
 
 [node name="SlideTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamPlaylist_bgm")
+volume_db = -6.0
+autoplay = true
 
 [connection signal="pressed" from="HudLayer/FinaleCenter/FinaleBox/ReplayBossButton" to="." method="_on_replay_boss_pressed"]
 [connection signal="pressed" from="HudLayer/FinaleCenter/FinaleBox/BackStartButton" to="." method="_on_back_start_pressed"]

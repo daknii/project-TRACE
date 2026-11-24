@@ -17,6 +17,14 @@
 [ext_resource type="Script" path="res://scripts/floresta/floresta_zone_manager.gd" id="15_mgr"]
 [ext_resource type="PackedScene" path="res://scenes/ui/pause_menu.tscn" id="16_pause"]
 [ext_resource type="PackedScene" path="res://scenes/ui/death_screen.tscn" id="17_death"]
+[ext_resource type="PackedScene" path="res://scenes/player/gato_ameba.tscn" id="18_gato"]
+[ext_resource type="AudioStream" path="res://Fantasy music Pack/Fantasy Times Enchanted Forest Alt Loop.wav" id="19_bgm1"]
+[ext_resource type="AudioStream" path="res://Fantasy music Pack/Nordic Exploration  Forgotten Forest.wav" id="20_bgm2"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_bgm"]
+stream_count = 2
+stream_0 = ExtResource("19_bgm1")
+stream_1 = ExtResource("20_bgm2")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7061b"]
 atlas = ExtResource("2_clinv")
@@ -594,11 +602,14 @@ script = ExtResource("1_cjgjs")
 attack_obj = ExtResource("12_garra")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="Player"]
+visible = false
 texture_filter = 1
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_3nqnr")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="GatoAmeba" parent="Player" instance=ExtResource("18_gato")]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Player"]
 shape = SubResource("CapsuleShape2D_k4pr2")
@@ -700,6 +711,12 @@ color = Color(0.02, 0.05, 0.06, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_fade")
 }
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = SubResource("AudioStreamPlaylist_bgm")
+volume_db = -6.0
+autoplay = true
 
 [connection signal="vida_alterada" from="Player" to="HudVida" method="_on_vida_alterada"]
 [connection signal="body_entered" from="Player/PatasDireita" to="Player" method="pata_direita"]
