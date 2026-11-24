@@ -35,31 +35,50 @@ func _ready() -> void:
 	vida_alterada.emit(vida, vida_maxima)
 	grapple_duracao_atual = GRAPPLE_DURATION
 
+func _empurrando_parede(direction: float) -> bool:
+	if is_on_floor() or jumping_duration > 0.0 or not ON_WALL or grapple_duracao_atual <= 0.0:
+		return false
+	if direction < 0.0 and WALL_DIR == Global.Direcao.ESQ:
+		return true
+	if direction > 0.0 and WALL_DIR == Global.Direcao.DIR:
+		return true
+	return false
+
 func _physics_process(delta: float) -> void:
+	var direction := Input.get_axis("esquerda", "direita")
+	var empurrando := _empurrando_parede(direction)
+	if not empurrando:
+		if GRAPPLE and velocity.y < 0.0:
+			velocity.y = 0.0
+		GRAPPLE = false
 	if not is_on_floor():
 		if not GRAPPLE:
-			if ON_WALL and grapple_duracao_atual > 0:
+			if empurrando and grapple_duracao_atual > 0 and velocity.y >= 0.0:
 				velocity.y = (get_gravity().y*10) * delta
 				grapple_duracao_atual -= delta
 			else:
 				velocity.y += get_gravity().y * delta
 	else:
 		grapple_duracao_atual = GRAPPLE_DURATION
-		
+
 	if grapple_duracao_atual > 0:
 		if GRAPPLE:
 			grapple_duracao_atual -= delta
 	elif grapple_duracao_atual <= 0:
 		GRAPPLE = false
-		
-		
-	var direction := Input.get_axis("esquerda", "direita")
 
 	if Input.is_action_just_pressed("pulo"):
-		
-		if is_on_floor():
+		if is_on_floor() and (GRAPPLE or ON_WALL):
+			GRAPPLE = false
+			ON_WALL = false
+			jumping_duration = JUMPING_TIME
 			velocity.y = JUMP_VELOCITY
-		if GRAPPLE:
+			direction = 0
+			if WALL_DIR == Global.Direcao.DIR:
+				velocity.x = SPEED * 0.45
+			else:
+				velocity.x = SPEED * -0.45
+		elif GRAPPLE or ON_WALL:
 			GRAPPLE = false
 			ON_WALL = false
 			jumping_duration = JUMPING_TIME
@@ -69,7 +88,9 @@ func _physics_process(delta: float) -> void:
 				velocity.x = (JUMP_VELOCITY*0.8)*-1
 			if WALL_DIR == Global.Direcao.DIR:
 				velocity.x = (JUMP_VELOCITY*0.8)
-		
+		elif is_on_floor():
+			velocity.y = JUMP_VELOCITY
+
 	
 	if Input.is_action_just_pressed("ataque") && ultimo_ataque >= attack_speed:
 		ultimo_ataque = 0
@@ -92,7 +113,7 @@ func _physics_process(delta: float) -> void:
 		if(direction < 0):
 			sprite.flip_h = true
 			# agora vou ver se ele corre contra a parede
-			if ON_WALL and WALL_DIR == Global.Direcao.ESQ and grapple_duracao_atual > 0: #tá indo pra direita e tem uma parede
+			if ON_WALL and WALL_DIR == Global.Direcao.ESQ and grapple_duracao_atual > 0 and jumping_duration <= 0.0 and not is_on_floor():
 				if not GRAPPLE:
 					GRAPPLE = true
 					velocity.y = 0
@@ -101,7 +122,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			sprite.flip_h = false
 			# agora vou ver se ele corre contra a parede
-			if ON_WALL and WALL_DIR == Global.Direcao.DIR and grapple_duracao_atual > 0: #tá indo pra direita e tem uma parede
+			if ON_WALL and WALL_DIR == Global.Direcao.DIR and grapple_duracao_atual > 0 and jumping_duration <= 0.0 and not is_on_floor():
 				if not GRAPPLE:
 					GRAPPLE = true
 					velocity.y = 0
@@ -110,8 +131,7 @@ func _physics_process(delta: float) -> void:
 		if jumping_duration < 0.1:
 			velocity.x = (direction * SPEED)
 	else:
-		if is_on_floor():
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 	animation(direction, not is_on_floor())

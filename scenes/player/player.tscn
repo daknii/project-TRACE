@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://hc81voqosabb"]
+
+[ext_resource type="Script" uid="uid://bfl2fom0gp6md" path="res://scripts/player/PlayerController.gd" id="1_p47bc"]
+[ext_resource type="PackedScene" uid="uid://b8xfvy7beqnee" path="res://components/garra.tscn" id="2_75vfm"]
+[ext_resource type="SpriteFrames" uid="uid://bk0knov13rxub" path="res://scenes/player/player_sprite_frames.tres" id="3_0owmy"]
+[ext_resource type="Script" uid="uid://bdc6xcv8vigkh" path="res://scripts/player/GatoCorpo.gd" id="4_qek5x"]
+[ext_resource type="Texture2D" uid="uid://b5pe1n7dictii" path="res://assets/front.png" id="5_5gtgg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h17s1"]
+radius = 14.0
+height = 98.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_je7p5"]
+height = 45.714233
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fm80t"]
+height = 45.714233
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p47bc"]
+size = Vector2(28, 60)
+
+[node name="Player" type="CharacterBody2D" unique_id=333485543 groups=["player"]]
+z_index = 2
+script = ExtResource("1_p47bc")
+attack_obj = ExtResource("2_75vfm")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1152367944]
+visible = false
+texture_filter = 1
+scale = Vector2(3, 3)
+sprite_frames = ExtResource("3_0owmy")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1174501505]
+shape = SubResource("CapsuleShape2D_h17s1")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1143769769]
+zoom = Vector2(1.5, 1.5)
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="PatasDireita" type="Area2D" parent="." unique_id=1706280255 groups=["player_damage"]]
+position = Vector2(37, -5)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatasDireita" unique_id=330442084]
+shape = SubResource("CapsuleShape2D_je7p5")
+
+[node name="PatasEsquerda" type="Area2D" parent="." unique_id=1934690010 groups=["player_damage"]]
+position = Vector2(-37, -5)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatasEsquerda" unique_id=1914195772]
+shape = SubResource("CapsuleShape2D_fm80t")
+
+[node name="Gato" type="Node2D" parent="." unique_id=1956286187]
+script = ExtResource("4_qek5x")
+
+[node name="Cabeca" type="Sprite2D" parent="Gato" unique_id=634385325]
+texture_filter = 2
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("5_5gtgg")
+
+[node name="hitbox" type="Area2D" parent="." unique_id=1920916340 groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=2017798375]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_p47bc")
+
+[connection signal="body_entered" from="PatasDireita" to="." method="pata_direita"]
+[connection signal="body_exited" from="PatasDireita" to="." method="sem_agarre"]
+[connection signal="body_entered" from="PatasEsquerda" to="." method="pata_esquerda"]
+[connection signal="body_exited" from="PatasEsquerda" to="." method="sem_agarre"]

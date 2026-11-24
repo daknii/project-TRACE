@@ -1,0 +1,54 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b05n4k10n6yvh"]
+
+[ext_resource type="Texture2D" uid="uid://b5pe1n7dictii" path="res://assets/front.png" id="1_front"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_front")
+}],
+"loop": 0,
+"name": &"fall",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_front")
+}],
+"loop": 1,
+"name": &"fall_loop",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_front")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_front")
+}],
+"loop": 0,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_front")
+}],
+"loop": 1,
+"name": &"run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_front")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
